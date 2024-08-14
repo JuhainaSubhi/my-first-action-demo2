@@ -1,0 +1,25 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14' # Specify the Node.js version to use
+
+      - name: Install Dependencies
+        run: npm install # Run this if you have dependencies; otherwise, you can skip it
+
+      - name: Run Tests
+        run: node test.js # Run the test script
