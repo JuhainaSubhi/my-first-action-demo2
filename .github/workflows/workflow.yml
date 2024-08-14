@@ -1,0 +1,19 @@
+name: Custom CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Display Custom Message
+        run: |
+          echo "------------------------------------"
+          echo "Welcome to your first GitHub Actions workflow!"
+          echo "------------------------------------"
